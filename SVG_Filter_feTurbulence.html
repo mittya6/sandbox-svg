@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <title>SVG Filters</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+        }
+
+
+        svg {
+            border: 1px solid #000;
+            width: 100%;
+            height: 600px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <svg>
+
+
+        <defs>
+            <filter id="wavy">
+                <feTurbulence x="0" y="0" baseFrequency="0.009" numOctaves="5" speed="2">
+                    <animate attributeName="baseFrequency" dur="60s" values="0.02; 0.005; 0.02"
+                        repeatCount="indefinite" />
+                    <animate attributeName="numOctaves" dur="60s" values="1; 5; 1"
+                        repeatCount="indefinite" />
+                </feTurbulence>
+                <feDisplacementMap in="SourceGraphic" scale="30"></feDisplacementMap>
+
+            </filter>
+        </defs>
+        <g>
+            <image href="./img/tokyoyakeiIMGL33331934_TP_V4.jpg" x="0" y="0" filter="url(#wavy)" />
+        </g>
+    </svg>
+
+</body>
+
+</html>

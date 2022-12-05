@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <title>SVG Filters</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+        }
+
+
+        svg {
+            border: 1px solid #000;
+            width: 100%;
+            height: 600px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <svg>
+
+
+        <defs>
+            <filter id="sample1">
+                <feDiffuseLighting in="SourceGraphic" result="light" lighting-color="white">
+                    <fePointLight x="150" y="60" z="20" />
+                </feDiffuseLighting>
+                <feComposite in="SourceGraphic" in2="light" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" />
+
+            </filter>
+
+            <filter id="sample2">
+                <feSpecularLighting result="spotlight" specularConstant="1.5" specularExponent="80"
+                    lighting-color="#FFF">
+                    <fePointLight x="50" y="50" z="220" />
+                </feSpecularLighting>
+                <feComposite in="SourceGraphic" in2="spotlight" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" />
+            </filter>
+
+            <filter id="sample3">
+                <feDiffuseLighting result="diffOut" in="SourceGraphic" diffuseConstant="1" lighting-color="white">
+                    <feDistantLight azimuth="45" elevation="45" />
+                </feDiffuseLighting>
+                <feComposite in="SourceGraphic" in2="diffOut" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" />
+            </filter>
+        </defs>
+        <g>
+            <image href="./img/tokyoyakeiIMGL33331934_TP_V4.jpg" x="0" y="0" filter="url(#sample3)" />
+        </g>
+    </svg>
+
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <title>SVG Filters</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+        }
+
+
+        svg {
+            border: 1px solid #000;
+            width: 100%;
+            height: 600px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <svg>
+
+
+        <defs>
+            <filter id="sample1">
+                <feFlood flood-color="red" flood-opacity="0.1" x="50" y="50" width="100" height="100" />
+            </filter>
+        </defs>
+        <g>
+            <image href="./img/tokyoyakeiIMGL33331934_TP_V4.jpg" x="0" y="0" filter="url(#sample1)" />
+        </g>
+    </svg>
+
+</body>
+
+</html>

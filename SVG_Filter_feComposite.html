@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <title>SVG Filters</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+        }
+
+
+        svg {
+            border: 1px solid #000;
+            width: 100%;
+            height: 600px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <svg>
+        <defs>
+
+            <filter id="composite1">
+                <feImage xlink:href="./img/265TSURUTAMA20211_TP_V4.jpg" x="0" y="0" />
+                <feComposite in2="SourceGraphic" operator="over" />
+            </filter>
+
+            <filter id="composite2">
+                <feImage xlink:href="./img/265TSURUTAMA20211_TP_V4.jpg" x="0" y="0" />
+                <feComposite in2="SourceGraphic" operator="in" />
+            </filter>
+
+            <filter id="composite3">
+                <feImage xlink:href="./img/265TSURUTAMA20211_TP_V4.jpg" x="0" y="0" />
+                <feComposite in2="SourceGraphic" operator="out" />
+            </filter>
+
+            <filter id="composite4">
+                <feImage xlink:href="./img/265TSURUTAMA20211_TP_V4.jpg" x="0" y="0" />
+                <feComposite in2="SourceGraphic" operator="atop" />
+            </filter>
+
+            <filter id="composite5">
+                <feImage xlink:href="./img/265TSURUTAMA20211_TP_V4.jpg" x="0" y="0" />
+                <feComposite in2="SourceGraphic" operator="xor" />
+            </filter>
+
+            <filter id="composite6">
+                <feImage xlink:href="./img/265TSURUTAMA20211_TP_V4.jpg" x="0" y="0" />
+                <feComposite in2="SourceGraphic" operator="arithmetic" k1="0.1" k2="0.2" k3="0.3" k4="0.4" />
+            </filter>
+
+            <filter id="composite7">
+                <feImage xlink:href="./img/265TSURUTAMA20211_TP_V4.jpg" x="0" y="0" />
+                <feComposite in2="SourceGraphic" operator="lighter" />
+            </filter>
+        </defs>
+
+        <image href="./img/tokyoyakeiIMGL33331934_TP_V4.jpg" x="0" y="0" filter="url(#composite7)" />
+
+    </svg>
+
+</body>
+
+</html>

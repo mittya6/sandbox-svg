@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <title>SVG Filters</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+        }
+
+
+        svg {
+            border: 1px solid #000;
+            width: 100%;
+            height: 600px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <svg>
+
+
+        <defs>
+            <filter id="identity" x="0" y="0" width="100%" height="100%">
+                <feComponentTransfer>
+                    <feFuncR type="identity"></feFuncR>
+                    <feFuncG type="identity"></feFuncG>
+                    <feFuncB type="identity"></feFuncB>
+                    <feFuncA type="identity"></feFuncA>
+                </feComponentTransfer>
+            </filter>
+            <filter id="table" x="0" y="0" width="100%" height="100%">
+                <feComponentTransfer>
+                    <feFuncR type="table" tableValues="0 0 1 1"></feFuncR>
+                    <feFuncG type="table" tableValues="1 1 0 0"></feFuncG>
+                    <feFuncB type="table" tableValues="0 1 1 0"></feFuncB>
+                </feComponentTransfer>
+            </filter>
+            <filter id="discrete" x="0" y="0" width="100%" height="100%">
+                <feComponentTransfer>
+                    <feFuncR type="discrete" tableValues="0 0 1 1"></feFuncR>
+                    <feFuncG type="discrete" tableValues="1 1 0 0"></feFuncG>
+                    <feFuncB type="discrete" tableValues="0 1 1 0"></feFuncB>
+                </feComponentTransfer>
+            </filter>
+            <filter id="linear" x="0" y="0" width="100%" height="100%">
+                <feComponentTransfer>
+                    <feFuncR type="linear" slope="0.5" intercept="0"></feFuncR>
+                    <feFuncG type="linear" slope="0.5" intercept="0.25"></feFuncG>
+                    <feFuncB type="linear" slope="0.5" intercept="0.5"></feFuncB>
+                </feComponentTransfer>
+            </filter>
+            <filter id="gamma" x="0" y="0" width="100%" height="100%">
+                <feComponentTransfer>
+                    <feFuncR type="gamma" amplitude="4" exponent="7" offset="0"></feFuncR>
+                    <feFuncG type="gamma" amplitude="4" exponent="4" offset="0"></feFuncG>
+                    <feFuncB type="gamma" amplitude="4" exponent="1" offset="0"></feFuncB>
+                </feComponentTransfer>
+            </filter>
+        </defs>
+        <g>
+            <image href="./img/tokyoyakeiIMGL33331934_TP_V4.jpg" x="0" y="0" filter="url(#linear)" />
+        </g>
+    </svg>
+
+</body>
+
+</html>
